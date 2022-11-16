@@ -13,7 +13,35 @@
     <div class="container">
         <h1>DVD Library</h1>
         <hr>
-
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">         
+            <div class="collapse navbar-collapse" id="dvdNavbar">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item col-md-10">
+                    <div class="col-md-8" id="addDvdButtonDiv">
+                        <button type="button"
+                        id="addDvdButton"
+                        class="btn btn-primary"
+                        onclick="showAddDvdForm()">
+                            Add Dvd
+                        </button>
+                    </div>                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Search Category
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+            </div>
+          </nav>
         <ul class="list-group" id="errorMessages"></ul>
         
         <div class="row">
@@ -130,14 +158,6 @@
                 </div> 
             </div>
             
-            <div class="col-md-6" id="addDvdButtonDiv">
-                <button type="button"
-                id="addDvdButton"
-                class="btn btn-primary"
-                onclick="showAddDvdForm()">
-                    Add Dvd
-                </button>
-            </div>
              <div class="col-md-6" id="addDvdDiv" style="display:none;"> 
                 <h2>Create Dvd</h2> <hr>
                 <form role="form" id="addForm">
