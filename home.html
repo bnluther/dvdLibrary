@@ -68,7 +68,7 @@
                 
                 <div id="editFormDiv" style="display:none;">
                     <h2>Edit DVD</h2>
-                    <form role="form" id="editForm">
+                    <form role="form" id="editForm" >
                         <div class="form-group row">
                             <label for="editTitle" class="col-md-4 control-label">
                                 Title:
@@ -109,20 +109,25 @@
                                        placeholder="Director">
                             </div>
                         </div>
+                        
 
                         <div class="form-group row">                        
                             <label for="editRating" class="col-md-4 control-label">
                                 Rating:
-                            </label>
-
+                            </label>   
                             <div class="col-md-8">
-                                <input type="text" 
-                                       class="form-control"
-                                       id="editRating"
-                                       placeholder="Rating" 
-                                       required>
+                              <select id="rating" name="rating">
+                                <option value="G">G</option>
+                                <option value="PG">PG</option>
+                                <option value="PG-13">PG-13</option> 
+                                <option value="R">R</option>                           
+                              </select>
+                              <input type= "submit"
+                                     id="editRating"                              
+                                     required>
                             </div>
                         </div>
+                        
 
                         <div class="form-group row">                        
                             <label for="editNotes" class="col-md-4 control-label">
@@ -204,19 +209,23 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">                        
-                        <label for="addRating" class="col-md-4 control-label">
-                            Rating:
-                        </label>
-
-                        <div class="col-md-8">
-                            <input type="text" 
-                                   class="form-control"
-                                   id="addRating"
-                                   placeholder="Rating" 
-                                   required>
+                        <div class="form-group row">                        
+                            <label for="editRating" class="col-md-4 control-label">
+                                Rating:
+                            </label>   
+                            <div class="col-md-8">
+                              <select id="rating" name="rating">
+                                <option value="G">G</option>
+                                <option value="PG">PG</option>
+                                <option value="PG-13">PG-13</option> 
+                                <option value="R">R</option> 
+                              </select>
+                              <input
+                                       type= "submit"
+                                       id="editRating"                              
+                                       required>
+                            </div>
                         </div>
-                    </div>
 
                     <div class="form-group row">                        
                         <label for="addNotes" class="col-md-4 control-label">
@@ -248,6 +257,11 @@
                     </div>
                 </form>
             </div>
+        </div>
+        
+        <div id="dvdPage"style="display:none;">
+        
+            <button id="myButton" class="float-left submit-button" >Back</button>
         </div>
 
     </div>
