@@ -39,7 +39,7 @@
                 </li>
               </ul>
               <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchBox">
                 <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
               </form>
             </div>
@@ -245,7 +245,8 @@
                         <div class="offset-md-4 col-md-8">
                             <button type="button"
                                     id="addButton"
-                                    class="btn btn-primary">
+                                    class="btn btn-primary"
+                                    onclick="addDVD()">
                                 Create Dvd
                             </button>
                             <button type="button"
@@ -260,9 +261,13 @@
             </div>
         </div>
         
-        <div id="dvdPage"style="display:none;">
-        
-            <button id="myButton" class="float-left submit-button" >Back</button>
+        <div id="dvdPage" style="display:none;">
+            <h2 id="dvdTitle"></h2><hr>
+            <p id="dvdReleaseYear"></p>
+            <p id="dvdDirector"></p>
+            <p id="dvdRating"></p>
+            <p id="dvdNotes"></p>
+            <button id="backButton" class="float-left btn btn-primary" onclick="hideDetails()">Back</button>
         </div>
 
     </div>
