@@ -2,6 +2,8 @@ $(document).ready(function () {
     loadDvds();
     searchDvd();
     addDVD();
+    updateDvd();
+    hideEditForm();
 });
 
 function loadDvds() {
@@ -133,6 +135,7 @@ function hideAddDvdForm() {
           $("#addDirector").val("");
           $("#addRating").val("");
           $("#addNotes").val("");
+          hideAddDvdForm();
           loadDvds();
         },
         error: function () {
@@ -152,14 +155,14 @@ function hideAddDvdForm() {
     $.ajax({
       type: "GET",
       url:
-        "http://dvd-library.us-east-1.elasticbeanstalk.com/dvds" + dvdId,
+        "http://dvd-library.us-east-1.elasticbeanstalk.com/dvd/" + dvdId,
       success: function (data, status) {
+        $('#editId').val(dvdId);
         $("#editTitle").val(data.title);
         $("#editReleaseYear").val(data.releaseYear);
         $("#editDirector").val(data.director);
         $("#editRating").val(data.rating);
         $("#editNotes").val(data.notes);
-        $("#editDvdId").val(data.dvdId);
   
       },
       error: function () {
@@ -184,44 +187,41 @@ function hideAddDvdForm() {
     $("#editDirector").val("");
     $("#editRating").val("");
     $("#editNotes").val("");
-  
-    $("dvdTableDiv").show();
     $("#editFormDiv").hide();
+    $("#dvdTableDiv").show();
   }
   
-  function updateDvd(dvdId) {
+  function updateDvd() {
     $("#updateButton").click(function (event) {
       // check for errors and abort if errors are found
-      var haveValidationErrors = checkAndDisplayValidationErrors(
-        $("#editForm").find("input")
-      );
+    //   var haveValidationErrors = checkAndDisplayValidationErrors(
+    //     $("#editForm").find("input")
+    //   );
   
-      if (haveValidationErrors) {
-        return false;
-      }
+    //   if (haveValidationErrors) {
+    //     return false;
+    //   }
   
       $.ajax({
         type: "PUT",
         url:
-          "http://dvd-library.us-east-1.elasticbeanstalk.com/dvds" +
-          $("#editDvdId").val(),
+          "http://dvd-library.us-east-1.elasticbeanstalk.com/dvd/" + $("#editId").val(),
   
         // format the data in JSON
         data: JSON.stringify({
+            id: $('#editId').val(),
           title: $("#editTitle").val(),
           releaseYear: $("#editReleaseYear").val(),
           director: $("#editDirector").val(),
           rating: $("#editRating").val(),
-          notes: $("#editNotes").val()
+          notes: $("#editNotes").val(),
         }),
         headers: {
-          Accept: "application/json",
+          "Accept": "application/json",
           "Content-Type": "application/json",
         },
-        dataType: "json",
-        success: function () {
-          $("#errorMessage").empty();
-          hideEditForm();
+        'success': function () {
+            hideEditForm();
           loadDvds();
         },
         error: function () {
