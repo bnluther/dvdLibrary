@@ -203,3 +203,13 @@ function deleteDvd(dvdId) {
     },
   });
 }
+
+// Need to test if this works
+function confirmDelete() {
+    $("#deleteButton").click(function (event) {
+      let text = "Are you sure you want to delete this DVD from your collection?";
+      if (confirm(text) == true) {
+        deleteDvd(dvdId);
+      }
+    }
+}
